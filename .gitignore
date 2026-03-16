@@ -1,0 +1,11 @@
+static/index.html*
+static/components.js*
+static/borrador*
+static/app.js*
+static/style.css*
+
+venv/
+
+data.py
+
+__pycache__*
