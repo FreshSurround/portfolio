@@ -13,7 +13,6 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# CORS — necesario si el browser abre el HTML desde un origen distinto al servidor
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -21,10 +20,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Rutas de la API
 app.include_router(portfolio.router)
 
-# Archivos estáticos (JS, CSS)
 #app.mount("/static", StaticFiles(directory="static"), name="static")
 
 '''serve_frontend() es quien llama y ejectua el html, y
@@ -32,7 +29,6 @@ get_portfolio() es quien le da toda la información y contenido
 para llenar la página'''
 @app.get("/")
 def serve_frontend():
-    """Sirve el frontend React desde la raíz."""
     return FileResponse("static/index2.html")
 
 
