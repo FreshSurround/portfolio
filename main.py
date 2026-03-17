@@ -22,20 +22,16 @@ app.add_middleware(
 
 app.include_router(portfolio.router)
 
-#app.mount("/static", StaticFiles(directory="static"), name="static")
-
-'''serve_frontend() es quien llama y ejectua el html, y
-get_portfolio() es quien le da toda la información y contenido
-para llenar la página'''
-@app.get("/")
-def serve_frontend():
-    return FileResponse("static/index2.html")
-
+'''app.mount() es quien monta y ejectua el html junto con
+sus dependencias, y get_portfolio() es quien sube toda la
+información y contenido para llenar la página en
+api/portfolio, de donde se alimenta index.html'''
+app.mount("/static", StaticFiles(directory="static", html=True), name="static")
 
 @app.get("/api/portfolio")
 async def get_portfolio():
     return {
-        "name": "Lau Giudici",
+        "name": "Neon Informatica",
         "title": "Desarrollo de software, sistemas, proyectos hardware-software y producción audiovisual.",
         "about_1": "Me dedico a la creación de soluciones informáticas para PyMES, particulares y emprendimientos locales, dentro del contexto social-económico de cada una. Mis herramientas van desde el software que administra las tareas deseadas de manera eficiente, hasta el hardware que es el puente entre el mundo real y el digital, pasando por la producción audiovisual como fuente principal de comunicación.",
         "about_2": "Me interesa comprender cómo funcionan las cosas a nivel estructural. Por eso suelo trabajar cerca del funcionamiento interno de los sistemas: comunicación entre componentes, diseño de APIs, interacción con hardware, y desarrollo de herramientas propias en lugar de depender exclusivamente de soluciones externas.",

@@ -1,11 +1,9 @@
-static/index.html*
+static/index_original.html*
 static/components.js*
 static/borrador*
 static/app.js*
-static/style.css*
-
+static/assets
 venv/
 
-data.py
 anotaciones_pa_mi
 __pycache__*
