@@ -93,15 +93,16 @@ PROJECTS: list[Project] = [
     {
         "id": "radio",
         "number": "01",
-        "title": "Sistema de radio controlado por software",
+        "title": "Sistema Automatizado de Control de Líquidos",
         "description": (
-            "Proyecto que integra hardware y software para construir un sistema de radio "
-            "controlado digitalmente. El sistema utiliza un microcontrolador para interactuar "
-            "con un módulo de radio FM y permite controlar la frecuencia, el volumen y otros "
-            "parámetros desde una aplicación de escritorio con interfaz analógica interactiva."
+            "Proyecto que integra hardware y software para construir un sistema de control "
+            "de líquidos automatizado solo con compuertas lógicas, cuyas funcionalidades "
+            "incluyen la activación/desactivación de una bomba de agua, un display de línea "
+            "para la temperatura, un display de nivel de líquido mediante 7-segmentos, "
+            "y un sistema de alarma para evitar sobrellenado del tanque"
         ),
         "role": "Diseño del sistema completo: hardware, firmware del microcontrolador y app de control en PC.",
-        "tags": ["C#", "Arduino", "Serial", "Hardware"],
+        "tags": ["Lógica secuencial", "Lógica digital", "Uso de integrados especializados", "Integración de las partes"],
     },
     {
         "id": "backend-api",

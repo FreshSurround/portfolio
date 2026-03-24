@@ -92,6 +92,12 @@ h2::after {
         transparent 20px
     );
 }
+
+p {
+    margin-bottom: 1.1rem;
+    font-size: 1.25rem;
+}
+
 .container {
     max-width: 680px;
     margin: 0 auto;
@@ -137,4 +143,155 @@ container::before {
     letter-spacing: 0.05em;
     transform: rotate(-15deg);
     opacity: 0.7;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 2.8rem;
+    animation: fadeInUp 0.8s ease;
+    animation-fill-mode: both;
+}
+
+/*Proyectos*/
+.project {
+    background: linear-gradient(
+        135deg,
+        var(--color-tape) 0%,
+        rgba(232, 213, 190, 0.3) 100%
+    );
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-aged);
+    position: relative;
+    transition: all 0.4s ease;
+    box-shadow:
+        2px 2px 0px var(--color-shadow),
+        4px 4px 8px var(--color-shadow);
+}
+
+.project::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    right: 20px;
+    height: 8px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-aged),
+        var(--color-aged) 20px,
+        var(--color-tape) 20px,
+        var(--color-tape) 25px
+    );
+    opacity: 0.6;
+}
+
+.project:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        3px 3px 0px var(--color-shadow),
+        6px 6px 12px var(--color-shadow);
+}
+
+.project-title {
+    font-family: "Courier Prime", monospace;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--color-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    padding-top: 0.5rem;
+}
+
+.project-desc {
+    font-size: 1.08rem;
+    color: var(--color-ink);
+    margin-bottom: 1rem;
+    line-height: 1.75;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.tech-tag {
+    display: inline-block;
+    font-family: "Courier Prime", monospace;
+    font-size: 0.7rem;
+    padding: 0.4rem 0.7rem;
+    background-color: transparent;
+    color: var(--color-aged);
+    border: 1px solid var(--color-aged);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+}
+
+.project-role {
+    font-size: 0.85rem;
+    color: var(--color-ink);
+    /*border-left: 3px solid var(--color-aged);*/
+    padding-left: 1rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Tecnologias/habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-category {
+    background: linear-gradient(
+        135deg,
+        rgba(212, 165, 116, 0.08) 0%,
+        transparent 100%
+    );
+    padding: 1.2rem;
+    border: 1px solid var(--color-aged);
+    border-radius: 0px;
+    position: relative;
+}
+
+.skill-category::before {
+    content: "◆";
+    position: absolute;
+    top: -8px;
+    left: 15px;
+    color: var(--color-paper);
+    background: var(--color-paper);
+    padding: 0 4px;
+    font-size: 0.8rem;
+}
+
+.skill-category h3 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    color: var(--color-ink);
+    padding-left: 0;
+    line-height: 1.6;
+}
+
+.skill-category li::before {
+    content: "▸ ";
+    color: var(--color-aged);
+    margin-right: 0.4rem;
+    opacity: 0.8;
 }
