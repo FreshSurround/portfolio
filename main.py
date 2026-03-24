@@ -55,7 +55,7 @@ async def get_portfolio():
             },
             {
                 "title": "Portfolio",
-                "description": "El actual portfolio para mostrar proyectos persolaes, freelance y diversa información.",
+                "description": "El actual portfolio para mostrar proyectos personales, freelance y diversa información.",
                 "technologies": ["Python", "FastAPI", "React.js"],
                 "role": ""
             },
