@@ -295,3 +295,92 @@ container::before {
     margin-right: 0.4rem;
     opacity: 0.8;
 }
+
+/* Footer */
+.footer {
+    padding: 2.5rem;
+    border-top: 2px dashed var(--color-aged);
+    background: linear-gradient(
+        to bottom,
+        var(--color-paper),
+        rgba(212, 165, 116, 0.05)
+    );
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-ink);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.contact-links a {
+    font-family: "Courier Prime", monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: var(--color-ink);
+    border: 1px solid var(--color-aged);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-link-github {
+    display: inline-block;
+    width: 38px;
+    height: 40px;
+    background-image: url("https://pngimg.com/uploads/github/github_PNG40.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid var(--color-aged);
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-link-github:hover {
+    background-color: var(--color-aged);
+    filter: invert(1);
+}
+
+.contact-link-linkedin {
+    display: inline-block;
+    width: 38px;
+    height: 40px;
+    background-image: url("https://www.pngall.com/wp-content/uploads/13/Linkedin-Logo-PNG-Pic.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid var(--color-aged);
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-link-linkedin:hover {
+    background-color: var(--color-aged);
+    filter: invert(1);
+}
+
+.contact-links a:hover {
+    background-color: var(--color-aged);
+    color: var(--color-paper);
+}
+
+.footer-credit {
+    font-size: 0.75rem;
+    color: var(--color-aged);
+    margin-top: 1rem;
+}
