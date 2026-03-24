@@ -37,7 +37,7 @@ async def get_portfolio():
         "about_2": "Me interesa comprender cómo funcionan las cosas a nivel estructural. Por eso suelo trabajar cerca del funcionamiento interno de los sistemas: comunicación entre componentes, diseño de APIs, interacción con hardware, y desarrollo de herramientas propias en lugar de depender exclusivamente de soluciones externas.",
         "skills": {
             "languages": ["Python", "Javascript", "HTML", "C++"],
-            "frameworks": ["FastAPI", ".NET / Windows Forms", "Arduino"],
+            "frameworks": ["FastAPI", ".NET / Windows Forms", "React.js"],
             "tools": ["Git", "Linux", "PostgreSQL", "Entornos de producción multimedia y edición"]
         },
         "projects": [
