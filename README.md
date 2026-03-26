@@ -21,6 +21,8 @@ portfolio/
 
 ## Instalación y uso
 
+If you want to see it without any installation on your local computer, you can visit the [portfolio itself](https://neon-informatica.onrender.com/static/)
+
 ```bash
 # 1. Crear entorno virtual (recomendado)
 python -m venv venv
