@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers import portfolio
 
 app = FastAPI(
-    title="Portfolio — Laura Giudici",
+    title="Portfolio — Lau Giudici",
     description="API del portfolio personal.",
     version="1.0.0",
 )
