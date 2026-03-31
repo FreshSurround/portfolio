@@ -38,7 +38,7 @@ async def get_portfolio():
         "skills": {
             "languages": ["Python", "Javascript", "HTML", "C++"],
             "frameworks": ["FastAPI", ".NET / Windows Forms", "React.js"],
-            "tools": ["Git", "Linux", "PostgreSQL", "Entornos de producción multimedia y edición"]
+            "tools": ["Git", "Linux", "PostgreSQL", "Electrónica", "IoT", "Entornos de producción multimedia y edición"]
         },
         "projects": [
 		{
@@ -52,6 +52,12 @@ async def get_portfolio():
                 "description": "Proyecto que utiliza lógica binaria y secuencial para automatizar el control de un tanque de líquidos, incluyendo la activacion/desactivación de la bomba de agua, un display 7-Segmento que indica el nivel del agua, un display de línea que muestra la temperatura del agua y un sistema de alarma para evitar que se sobrellene el tanque.",
                 "technologies": ["Lógica binaria", "Lógica secuencial", "Integrados TTL y CMOS", "Sistemas de Control"],
                 "role": ""
+            },
+            {
+              "title": "Tablero de Voley con control a distancia (IoT)",
+              "description": "Tablero hecho dentro del marco de la Beca SAE de la UTN FRVM, 2025, a pedido del Departamento de Electrónica. Consiste en una serie de 7-Segmentos controlados por lógica binaria y secuencial. El sistema está conectado a un transmisor WiFi por el cual un teléfono conectado puede llevar la cuenta de puntaje, modificarla y resetear tanto el puntaje como los SETS",
+              "technologies": ["Lógica binaria", "Lógica secuencial", "IoT"],
+              "role": ""
             },
             {
                 "title": "Portfolio",

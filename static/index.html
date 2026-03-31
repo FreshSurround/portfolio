@@ -8,8 +8,18 @@
             href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Crimson+Text:ital@0;1&display=swap"
             rel="stylesheet"
         />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+            rel="stylesheet"
+        />
+
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="ProjectModal.css" />
     </head>
+
     <body>
         <div id="root"></div>
         <script
@@ -27,6 +37,184 @@
 
         <script type="text/babel">
             const { useState, useEffect } = React;
+
+            function ProjectModal({ project, onClose }) {
+                const [currentIndex, setCurrentIndex] = useState(0);
+                const media = project.media || [];
+
+                // Manejo de blur en el fondo y tecla ESC
+                useEffect(() => {
+                    document.body.classList.add("modal-open");
+
+                    const handleEsc = (e) => {
+                        if (e.key === "Escape") onClose();
+                    };
+                    window.addEventListener("keydown", handleEsc);
+
+                    return () => {
+                        document.body.classList.remove("modal-open");
+                        window.removeEventListener("keydown", handleEsc);
+                    };
+                }, [onClose]);
+
+                if (media.length === 0) return null;
+
+                const changeMedia = (direction) => {
+                    setCurrentIndex((prevIndex) => {
+                        const newIndex = prevIndex + direction;
+                        if (newIndex < 0) return media.length - 1; // Volver al final
+                        if (newIndex >= media.length) return 0; // Volver al principio
+                        return newIndex;
+                    });
+                };
+
+                const currentItem = media[currentIndex];
+
+                return (
+                    <div className="modal-overlay" onClick={onClose}>
+                        {console.log("ProjectModal media: ", media)}
+                        <div
+                            className="modal-content"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button className="close-btn" onClick={onClose}>
+                                &times;
+                            </button>
+
+                            <g>{project.title}</g>
+
+                            <div className="media-viewer">
+                                {media.length > 1 && (
+                                    <button
+                                        className="nav-btn prev"
+                                        onClick={() => changeMedia(-1)}
+                                    >
+                                        &#10094;
+                                    </button>
+                                )}
+
+                                <div className="media-container">
+                                    {currentItem.type === "image" ? (
+                                        <img
+                                            src={currentItem.url}
+                                            alt={`Media ${currentIndex + 1}`}
+                                        />
+                                    ) : (
+                                        <video
+                                            controls
+                                            autoPlay
+                                            key={currentItem.url}
+                                        >
+                                            <source
+                                                src={currentItem.url}
+                                                type="video/mp4"
+                                            />
+                                            Tu navegador no soporta video.
+                                        </video>
+                                    )}
+                                </div>
+
+                                {media.length > 1 && (
+                                    <button
+                                        className="nav-btn next"
+                                        onClick={() => changeMedia(1)}
+                                    >
+                                        &#10095;
+                                    </button>
+                                )}
+                            </div>
+
+                            <p className="media-counter">
+                                {currentIndex + 1} / {media.length}
+                            </p>
+                        </div>
+                    </div>
+                );
+            }
+
+            function Projects({ data }) {
+                const [selectedProject, setSelectedProject] = useState(null);
+
+                const proyectos = {
+                    0: [
+                        {
+                            type: "image",
+                            url: "https://raw.githubusercontent.com/FreshSurround/solarformes/refs/heads/main/assets/Solarformes0-1.gif",
+                        },
+                    ],
+                    1: [
+                        {
+                            type: "image",
+                            url: "https://raw.githubusercontent.com/FreshSurround/assets/refs/heads/main/tecnicas_1_assets/WhatsApp%20Image%202026-03-13%20at%2019.52.07.jpeg",
+                        },
+                        {
+                            type: "image",
+                            url: "https://raw.githubusercontent.com/FreshSurround/assets/refs/heads/main/tecnicas_1_assets/WhatsApp%20Image%202026-02-19%20at%2020.38.15.jpeg",
+                        },
+                        {
+                            type: "image",
+                            url: "https://raw.githubusercontent.com/FreshSurround/assets/refs/heads/main/tecnicas_1_assets/WhatsApp%20Image%202026-01-28%20at%2020.56.50.jpeg",
+                        },
+                    ],
+                    2: [
+                        {
+                            type: "image",
+                            url: "https://raw.githubusercontent.com/FreshSurround/assets/refs/heads/main/tablero_rivadavia_github/Sin%20t%C3%ADtulo.png",
+                        },
+                        {
+                            type: "image",
+                            url: "https://raw.githubusercontent.com/FreshSurround/assets/blob/main/tablero_rivadavia_github/Sin%20t%C3%ADtulo2comp.png",
+                        },
+                    ],
+                };
+
+                const handleProjectClick = (project, idx) => {
+                    // Añadimos los medios al proyecto seleccionado antes de abrir el modal
+                    /*{
+                        console.log("handle project: ", project);
+                    }*/
+                    setSelectedProject({
+                        ...project,
+                        media: proyectos[idx] || [],
+                    });
+                };
+
+                return (
+                    <section className="section">
+                        <h2>Proyectos destacados</h2>
+                        {data.projects.map((project, idx) => (
+                            <div
+                                key={idx}
+                                className="project clickable"
+                                onClick={() => handleProjectClick(project, idx)}
+                                role="button"
+                                tabIndex={0}
+                            >
+                                <div className="project-title">
+                                    {project.title}
+                                </div>
+                                <div className="project-desc">
+                                    {project.description}
+                                </div>
+                                <div className="project-tech">
+                                    {project.technologies.map((tech, tidx) => (
+                                        <span key={tidx} className="tech-tag">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+
+                        {selectedProject && (
+                            <ProjectModal
+                                project={selectedProject}
+                                onClose={() => setSelectedProject(null)}
+                            />
+                        )}
+                    </section>
+                );
+            }
 
             function Portfolio() {
                 const [data, setData] = useState(null);
@@ -63,31 +251,7 @@
                                     </section>
                                 </header>
 
-                                <section className="section">
-                                    <h2>Proyectos destacados</h2>
-                                    {data.projects.map((project, idx) => (
-                                        <div key={idx} className="project">
-                                            <div className="project-title">
-                                                {project.title}
-                                            </div>
-                                            <div className="project-desc">
-                                                {project.description}
-                                            </div>
-                                            <div className="project-tech">
-                                                {project.technologies.map(
-                                                    (tech, tidx) => (
-                                                        <span
-                                                            key={tidx}
-                                                            className="tech-tag"
-                                                        >
-                                                            {tech}
-                                                        </span>
-                                                    ),
-                                                )}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </section>
+                                <Projects data={data} />
 
                                 <section className="section">
                                     <h2>Tecnologías</h2>

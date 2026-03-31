@@ -39,14 +39,14 @@ html {
 }
 
 h1 {
-    font-family: "Courier Prime", monospace;
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.1;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: clamp(5rem, 6vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.41;
     margin-bottom: 0.3rem;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.2em;
     position: relative;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 h1::after {
@@ -128,7 +128,7 @@ container::before {
 
 .header {
     margin-bottom: 2.5rem;
-    animation: fadeInUp 0.8s ease;
+    animation: fadeInUp 1.3s;
 }
 
 .bigstamp {
@@ -148,7 +148,7 @@ container::before {
 /* Sections */
 .section {
     margin-bottom: 2.8rem;
-    animation: fadeInUp 0.8s ease;
+    /*animation: fadeInUp 0.8s ease;*/
     animation-fill-mode: both;
 }
 
@@ -216,6 +216,18 @@ container::before {
     flex-wrap: wrap;
     gap: 0.6rem;
     margin-bottom: 0.8rem;
+}
+
+/* Estilos para tarjetas clickeables */
+.project.clickable {
+    cursor: pointer;
+    position: relative;
+    border-color: #fe418b;
+}
+
+.project.clickable:hover {
+    border-color: #fe418b;
+    background: #ffe491;
 }
 
 .tech-tag {
@@ -383,4 +395,17 @@ container::before {
     font-size: 0.75rem;
     color: var(--color-aged);
     margin-top: 1rem;
+}
+
+/*animaciones*/
+
+@keyframes fadeInUp {
+    0% {
+        transform: translate(0px, 100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0px, 0);
+        opacity: 1;
+    }
 }
